@@ -56,7 +56,7 @@ pipeline {
                    withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker'){   
                       sh "docker build -t youtube-clone ."
                       sh "docker tag youtube-clone mehdichitta/youtube-clone:latest "
-                      sh "docker push mehdichitta/youtube-clone:latest "
+                      sh "docker push mehdichitta/youtube-clone:latest --timeout=600 "
                     }
                 }
             }
