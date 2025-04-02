@@ -22,14 +22,14 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/mehdi2025/a-reddit-clone.git'
+                git branch: 'main', url: 'https://github.com/mehdi2025/a-youtube-clone-app.git'
             }
         }
         stage("Sonarqube Analysis") {
             steps {
                 withSonarQubeEnv('SonarQube-Server') {
-                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Reddit-Clone-CI \
-                    -Dsonar.projectKey=Reddit-clone-CI'''
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Youtube-CICD \
+                    -Dsonar.projectKey=Youtube-CICD'''
                 }
             }
         }
